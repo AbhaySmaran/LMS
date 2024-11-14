@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dashboard</title>
+  <title>Time-Off 1.0</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
@@ -46,7 +46,7 @@
 									<th class='text-left'>Associate Id</th>
 										<th class="text-left">Name</th>
 										<th class="text-left">Email</th>
-										<th class="text-center">Actions</th>
+										<th class="text-left">Actions</th>
 									</tr>
 							</thead>
 							<tbody>
@@ -337,7 +337,7 @@
 						<td class="text-left">${item.associate_id}</td>
 						<td class="text-left">${item.first_name} ${item.last_name}</td>
 						<td class="text-left">${item.email}</td>
-						<td class="text-center">
+						<td class="text-left">
 							<button class='btn btn-light btn-view-user' data-id="${item.id}" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#viewUserModal">
 								<i class="fa-solid fa-eye"></i> View
 							</button>

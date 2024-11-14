@@ -23271,3 +23271,11 @@ footer .vertical-divider {
     margin-left: 10px;
     margin-bottom: 1rem;
 }
+
+
+.stretch-card .mdc-card #leave-statiscic-table{
+	width: 100%;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+	background-color: lightgray;
+}

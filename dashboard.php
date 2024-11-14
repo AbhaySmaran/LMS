@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dashboard</title>
+  <title>Time-Off 1.0</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
@@ -35,8 +35,38 @@
       <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
 			<div class="d-flex justify-content-between mb-4">
-				<button class="btn btn-primary" data-toggle="modal" data-target="#applyLeaveModal">Apply leave</button>
+				<div id="1btndiv " style="width:100%">
+					<div id="btndiv" class="text-right"><button class="btn btn-primary" data-toggle="modal" data-target="#applyLeaveModal">Apply leave</button></div>
+				<div>
 			</div>
+			
+			<div class="mdc-layout-grid" id = "leave-statiscic-table">
+				<div class="mdc-layout-grid__inner">
+					<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-card p-0">
+							<p class="card-title card-padding pb-0"><b>Statistics:-</b></p>
+							<div class="table-responsive">
+								<table class="table tabble-bordered" id="leave">
+									
+									<thead>
+										<tr>
+										
+											<th class="text-center"><div><button class="btn btn-light cancel-button"  style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"><b>No. of Associates: </b><h2><span id="total_associates"></span></h2></button></div></th>
+											<th class="text-center"><div><button class="btn btn-light cancel-button"  style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"><b>No. of Managers: </b><h2><span id="total_managers"></span></h2></button></div></th>
+											<th class="text-center"><div><button class="btn btn-light cancel-button"  style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"><b>No. of Admins: </b><h2><span id="total_admins"></span></h2></button></div></th>
+											<th class="text-center"><div><button class="btn btn-ligth cancel-button"  style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"><b>No. of Pending Leave to Approve: </b><h2><span id="pending_applications"></span></h2></button></div></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Data will be injected here by jQuery -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="mdc-layout-grid">
 				<div class="mdc-layout-grid__inner">
 					<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
@@ -265,7 +295,7 @@
 		loadLeaves();
 		loadLeaveTypes();
 		loadMyApplications();
-		
+		loadStatistics();
 		//loadHolidays();
 		let holidays = {};
 		let halfDay;
@@ -292,6 +322,22 @@
 		}
 		console.log(holidays)
 		
+		function loadStatistics(){
+			$.ajax({
+				url:`${baseUrl}/leaves/statistics/`,
+				type: 'GET',
+				headers: {
+					"Authorization": `Bearer ${access}`
+				},
+				success: function(response){
+					$('#total_associates').text(response.associates);
+					$('#total_admins').text(response.admins);
+					$('#total_managers').text(response.managers);
+					$('#pending_applications').text(response.pending_applications);
+				}
+			})
+		}
+		
 		function loadMyApplications(){
 			$.ajax({
 				url: `${baseUrl}/leaves/applications/`,
@@ -309,9 +355,9 @@
 								<td class="text-left">${application.start_date}</td>
 								<td class="text-left">${application.end_date}</td>
 								<td class="text-left">${application.status}</td>
-								<td>
+								<td class="text-left">
 									${application.status === 'Pending' 
-										? `<button class="btn btn-primary cancel-button" data-id="${application.application_id}">Cancel</button>` 
+										? `<button class="btn btn-light cancel-button"  style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" data-id="${application.application_id}">Cancel</button>` 
 										: ''}
 								</td>
 							</tr>`;
@@ -438,6 +484,7 @@
 					//updateLeaveBalance(selectedLeaveType, remainingDays);
 					loadLeaves();
 					loadMyApplications();
+					loadStatistics();
 					console.log("id",userId);
                 },
                 error: function(err) {
@@ -483,6 +530,7 @@
 					success: function(response){
 						loadLeaves();
 						loadMyApplications();
+						loadStatistics();
 						
 					},
 					error: function(err){

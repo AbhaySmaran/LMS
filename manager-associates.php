@@ -46,7 +46,7 @@
 									<th class='text-left'>Associate Id</th>
 										<th class="text-left">Name</th>
 										<th class="text-left">Email</th>
-										<th class="text-center">Actions</th>
+										<th class="text-left">Actions</th>
 									</tr>
 							</thead>
 							<tbody>
@@ -86,7 +86,7 @@
 												<tr>
 													<th class="text-left">Associate Id</th>
 													<th class="text-left">Name</th>
-													<th class="text-left">Emal</th>
+													<th class="text-left">Email</th>
 													
 													
 												</tr>
@@ -388,7 +388,7 @@
 						<td class="text-left">${item.associate_id}</td>
 						<td class="text-left">${item.first_name} ${item.last_name}</td>
 						<td class="text-left">${item.email}</td>
-						<td class="text-center">
+						<td class="text-left">
 							<button class='btn btn-light btn-view-user' data-id="${item.id}" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#viewUserModal">
 								<i class="fa-solid fa-eye"></i> View
 							</button>
@@ -503,6 +503,8 @@
 				success: function(response){
 					alert("Leave Aprroved")
 					$('#viewUserApplications').modal('hide');
+					loadPendingApplications();
+					displayTableData();
 				},
 				error: function(err){
 					alert(err)
@@ -522,6 +524,8 @@
 				success: function(response){
 					alert("Leave Rejected")
 					$('#viewUserApplications').modal('hide');
+					loadPendingApplications();
+					displayTableData();
 					
 				},
 				error: function(err){

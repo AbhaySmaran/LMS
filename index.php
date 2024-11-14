@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Material Dash</title>
+  <title>Time-Off 1.0</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
@@ -51,37 +51,20 @@
                         </div>
 						
 						
-                       <!-- <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                          <div class="mdc-form-field">
-                            <div class="mdc-checkbox">
-                              <input type="checkbox"
-                                      class="mdc-checkbox__native-control"
-                                      id="checkbox-1"/>
-                              <div class="mdc-checkbox__background">
-                                <svg class="mdc-checkbox__checkmark"
-                                      viewBox="0 0 24 24">
-                                  <path class="mdc-checkbox__checkmark-path"
-                                        fill="none"
-                                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                                </svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
-                              </div>
-                            </div>
-                            <label for="checkbox-1">Remember me</label>
-                          </div>
-                        </div>
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop d-flex align-items-center justify-content-end">
-                          <a href="#">Forgot Password</a>
-                        </div>-->
+                       
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                           <button type="submit" class="mdc-button mdc-button--raised w-100">
                             Login
                           </button>
                         </div>
+						
                       </div>
+					  
                     </div>
                   </form>
+				  <div class="text-center"><p>Copyright Time-Off 1.0 © All Rights Reserved</p><div>
                 </div>
+				
               </div>
               <div class="stretch-card mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-1-tablet"></div>
             </div>
