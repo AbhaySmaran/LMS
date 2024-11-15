@@ -1,1 +1,1 @@
-To run this add this file in xampp's htdocs folder then start apache
+ Place the  folder in the XAMPP `htdocs` folder, then start the XAMPP server by stating apache after running xampp control panel and access the files via `http://localhost`.
